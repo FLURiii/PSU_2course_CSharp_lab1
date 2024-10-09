@@ -7,7 +7,7 @@ public class Programm
     {
         int number_q;
         bool end_programm = false;
-        int num_debug = 20    ;// 0 - обычное выполнение программы, иначе от 1 до 20 номер задания, которое будет выполнялся бесконечно
+        int num_debug = 0    ;// 0 - обычное выполнение программы, иначе от 1 до 20 номер задания, которое будет выполнялся бесконечно
         Programm foo = new Programm();
         /*
         Console.WriteLine(foo.charToNum('3'));
