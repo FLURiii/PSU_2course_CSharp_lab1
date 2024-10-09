@@ -131,6 +131,7 @@ public class Programm
             Console.Write(input[i]);
             Console.Write(" ");
         }
+        Console.WriteLine("");
     }
     public int[] InputIntegerArrayWithValidation(string s, int left, int right)
     {
