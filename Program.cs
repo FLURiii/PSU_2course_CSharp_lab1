@@ -42,7 +42,7 @@ public class Programm
                     break;
                 case 2:
                     Console.WriteLine("\nБукву в число");
-                    Console.WriteLine(foo.charToNum(Convert.ToChar(foo.InputIntegerWithValidation("Введите число от 0 до 9", 0, 9)))); 
+                    Console.WriteLine(foo.charToNum(foo.InputIntegerCharWithValidation("Введите число от 0 до 9", 0, 9))); 
                     break;
                 case 3:
                     Console.WriteLine("\nДвузначное"); 
@@ -165,6 +165,33 @@ public class Programm
             }
         } while (!ok);
         return a;
+    }
+
+    public char InputIntegerCharWithValidation(string s, int left, int right) // Ввод целого числа с проверкой правильности ввода, в том числе принадлежности к указанному диапазону.                                                                                         
+    {
+        bool ok;
+        int a;
+        string input;
+        char output;
+        do
+        {
+            if (s != "") Console.WriteLine(s); // да блен, переписывать 3/4 лабы, поскольку можно реализовать значение по умолчанию.. не
+            input = Console.ReadLine();
+            ok = int.TryParse(input, out a);
+            if (ok)
+                if (a < left || a > right)
+                    ok = false;
+            if (!ok)
+            {
+                ConsoleColor tmp = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"\nВведенные данные имеют неверный формат или не принадлежат диапазону [{left}; {right}]");
+                Console.WriteLine("Повторите ввод\n");
+                Console.ForegroundColor = tmp;
+            }
+        } while (!ok);
+        output = Convert.ToChar(input);
+        return output;
     }
 
     public long InputLongWithValidation(string s, long left, long right) // Ввод целого числа с проверкой правильности ввода, в том числе принадлежности к указанному диапазону.                                                                                         
